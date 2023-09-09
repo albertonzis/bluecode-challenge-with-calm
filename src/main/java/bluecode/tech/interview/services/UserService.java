@@ -14,8 +14,10 @@ public class UserService {
 
     private UserRepository userRepository;
 
-    public Long createUser(User user) {
-        User newUser = userRepository.save(user);
+    public Long createUser(UserDTO user) {
+        User newUser = new User();
+        BeanUtils.copyProperties(user, newUser);
+        newUser = userRepository.save(newUser);
         return newUser.getId();
     }
 
