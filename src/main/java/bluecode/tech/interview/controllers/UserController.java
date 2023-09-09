@@ -3,6 +3,7 @@ package bluecode.tech.interview.controllers;
 import bluecode.tech.interview.dtos.UserDTO;
 import bluecode.tech.interview.models.User;
 import bluecode.tech.interview.services.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<Long> createUser(UserDTO user) {
+    public ResponseEntity<Long> createUser(@Valid UserDTO user) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(user));
     }
 
