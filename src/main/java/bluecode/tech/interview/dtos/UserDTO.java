@@ -1,18 +1,21 @@
 package bluecode.tech.interview.dtos;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import lombok.Data;
 
-import java.io.Serializable;
+@Data
+public class UserDTO {
 
-@NoArgsConstructor
-@Getter
-@Setter
-public class UserDTO implements Serializable {
-
+    @NotBlank(message = "Name is required")
     private String name;
+
+    @NotBlank(message = "Email is required")
+    @Email
     private String email;
+
+    @Positive(message = "Number must be a positive number")
     private Integer age;
 
 }
