@@ -28,6 +28,7 @@ public class UserService {
     public User updateUser(Long id, UserDTO userDTO) {
         User user = getUser(id);
         BeanUtils.copyProperties(userDTO, user);
+        userRepository.save(user);
         return user;
     }
 
