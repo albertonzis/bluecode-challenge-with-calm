@@ -1,8 +1,6 @@
 package bluecode.tech.interview.dtos;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
@@ -12,10 +10,11 @@ public class UserDTO {
     private String name;
 
     @NotBlank(message = "Email is required")
-    @Email
+    @Email(message = "Email is malformed")
     private String email;
 
-    @Positive(message = "Number must be a positive number")
+    @NotNull(message = "Age is required")
+    @Positive(message = "Age must be a positive number")
     private Integer age;
 
 }
