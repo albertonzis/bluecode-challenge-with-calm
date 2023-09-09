@@ -1,2 +1,2 @@
 # BlueCode coding Challenge
-This is the test you're supposed to build in the tech interview
+This is the challenge you're supposed to build in the tech interview
